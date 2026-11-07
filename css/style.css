@@ -1,0 +1,136 @@
+/* Simple colours for the website */
+body {
+    background-color: #0d1917;
+    color: #f4f4ed;
+    font-family: Arial, sans-serif;
+}
+
+.navbar-brand span,
+.green-text {
+    color: #d7ff59;
+}
+
+.navbar-nav .nav-link {
+    transition: color 0.2s ease;
+}
+
+.navbar.navbar-dark .navbar-nav .nav-link.active {
+    color: #d7ff59;
+    text-decoration: underline;
+    text-underline-offset: 0.35em;
+}
+
+.card {
+    background-color: #12211d;
+    color: #f4f4ed;
+    border: 1px solid #304039;
+}
+
+.card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+
+.modal-content {
+    background-color: #12211d;
+    color: #f4f4ed;
+}
+
+.modal-header {
+    border-bottom-color: #304039;
+}
+
+.modal-body h6 {
+    color: #d7ff59;
+    margin-top: 15px;
+}
+
+.modal-body a {
+    color: #d7ff59;
+}
+
+footer {
+    border-top: 1px solid #304039;
+    color: #b8c5bd;
+}
+.navbar-logo {
+    width: 180px;
+    height: 75px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+/* Mobile Logo */
+@media (max-width: 576px) {
+  .navbar-logo {
+    width: 45px;
+    height: 45px;
+  }
+
+  .navbar-brand {
+    font-size: 21px;
+  }
+}
+/* Keep cards tidy on phones */
+@media (max-width: 576px) {
+    .card-img-top {
+        height: 210px;
+    }
+}
+
+
+/* Login and signup modal use the same dark green and lime theme */
+.account-modal .form-control {
+    background-color: #0d1917;
+    color: #f4f4ed;
+    border: 1px solid #304039;
+}
+.account-modal .form-control:focus {
+    background-color: #0d1917;
+    color: #f4f4ed;
+    border-color: #d7ff59;
+    box-shadow: 0 0 0 .2rem rgba(215,255,89,.15);
+}
+.account-modal .form-control::placeholder { color: #9aa9a1; }
+.category-buttons { padding: 12px 8px; }
+.category-buttons .btn { margin: 4px; }
+.category-buttons .btn.active {
+    background-color: #d7ff59;
+    border-color: #d7ff59;
+    color: #0d1917;
+}
+
+
+/* Extra project requirement styles - kept beginner friendly */
+.visitor-counter { color: #f4f4ed; font-size: 14px; white-space: nowrap; }
+.visitor-counter strong { color: #d7ff59; }
+.extra-section { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; scroll-margin-top: 85px; }
+.extra-section.show-section { opacity: 1; transform: translateY(0); }
+.info-card { background: #12211d; border: 1px solid #304039; border-radius: 10px; padding: 20px; }
+.info-card h5 { color: #d7ff59; }
+.section-intro { color: #b8c5bd; }
+.career-item { margin-top: 22px; }
+.career-bar { height: 12px; background: #304039; border-radius: 20px; overflow: hidden; margin-top: 8px; }
+.career-bar span { display: block; height: 100%; background: #d7ff59; border-radius: 20px; }
+.simple-list li { margin: 10px 0; }
+.gallery-photo { width: 100%; height: 210px; object-fit: cover; border-radius: 10px; border: 1px solid #304039; }
+.sitemap-links { display: flex; flex-wrap: wrap; gap: 12px; }
+.sitemap-links a { color: #d7ff59; border: 1px solid #304039; border-radius: 8px; padding: 10px 14px; text-decoration: none; transition: background .3s ease, color .3s ease; }
+.sitemap-links a:hover { background: #d7ff59; color: #0d1917; }
+#ticker { position: fixed; bottom: 0; left: 0; width: 100%; z-index: 1050; overflow: hidden; white-space: nowrap; background: #12211d; color: #d7ff59; border-top: 1px solid #304039; padding: 8px 0; }
+#tickerText { display: inline-block; padding-left: 100%; animation: tickerMove 24s linear infinite; }
+@keyframes tickerMove { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+body { padding-bottom: 45px; }
+
+/* All-characters Bootstrap carousel */
+#allCharactersCarousel { max-width:1120px; }
+#charactersCarousel { padding:8px 0 38px; }
+#charactersCarousel .carousel-control-prev,#charactersCarousel .carousel-control-next { width:5%; }
+#charactersCarousel .carousel-control-prev-icon,#charactersCarousel .carousel-control-next-icon { background-color:#198754; border-radius:50%; background-size:55%; width:2.5rem; height:2.5rem; }
+#charactersCarousel .carousel-indicators { bottom:0; margin-bottom:0; }
+#charactersCarousel .carousel-indicators [data-bs-target] { background-color:#198754; }
+.character-slide-card { display:block; height:100%; overflow:hidden; text-align:center; text-decoration:none; color:inherit; background:#fff; border:1px solid rgba(25,135,84,.18); border-radius:14px; box-shadow:0 5px 18px rgba(0,0,0,.08); transition:transform .25s ease,box-shadow .25s ease; }
+.character-slide-card:hover { color:#198754; transform:translateY(-5px); box-shadow:0 9px 24px rgba(0,0,0,.14); }
+.character-slide-card img { display:block; width:100%; height:220px; object-fit:cover; }
+.character-slide-name { padding:13px 8px; font-weight:700; font-size:1rem; }
+@media(max-width:767.98px) { #charactersCarousel .carousel-control-prev,#charactersCarousel .carousel-control-next { width:8%; } .character-slide-card img { height:250px; } }

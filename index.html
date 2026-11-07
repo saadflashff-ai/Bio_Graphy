@@ -1,0 +1,1947 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bio Graphy</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/animation.css" />
+  </head>
+  <body>
+
+    <!-- Login and Signup Modal -->
+    <div class="modal fade" id="accountModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content account-modal">
+          <div class="modal-header">
+            <h5 class="modal-title green-text">Welcome to Bio Graphy</h5>
+          </div>
+          <div class="modal-body">
+            <div class="text-center mb-3">
+              <button id="loginTab" class="btn btn-success btn-sm">Login</button>
+              <button id="signupTab" class="btn btn-outline-success btn-sm">Sign Up</button>
+            </div>
+            <form id="loginForm">
+              <h5 class="mb-3">Login to your account</h5>
+              <label class="form-label" for="loginEmail">Email</label>
+              <input class="form-control mb-3" type="email" id="loginEmail" required placeholder="Enter your email">
+              <label class="form-label" for="loginPassword">Password</label>
+              <input class="form-control mb-3" type="password" id="loginPassword" required placeholder="Enter your password">
+              <button class="btn btn-success w-100" type="submit">Login</button>
+            </form>
+            <form id="signupForm" style="display:none">
+              <h5 class="mb-3">Create an account</h5>
+           
+              <input class="form-control mb-3" type="text" id="signupName" required placeholder="Enter your name">
+              <input class="form-control mb-3" type="email" id="signupEmail" required placeholder="Enter your email">
+              <input class="form-control mb-3" type="password" id="signupPassword" required minlength="6" placeholder="Create a password">
+              <button class="btn btn-success w-100" type="submit">Create Account</button>
+            </form>
+            <p id="accountMessage" class="small mt-3 mb-0 text-center"></p>
+            <p class="small text-center mt-2 mb-0 text-secondary">Your account is saved in this browser only.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+
+    <!-- Website Logo -->
+    <a class="navbar-brand fw-bold d-flex align-items-center" href="#home">
+      <img src="images/Navbar Logo/BioGraphy_ Discover, Learn, Be Inspired.png" alt="BioGraphy Logo" class="navbar-logo">
+      Bio <span>Graphy</span>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#menu"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+
+        <li class="nav-item">
+          <a class="nav-link" href="#home">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#career">Career</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#research">Research</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#awards">Awards</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#gallery">Gallery</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#sitemap">Sitemap</a>
+        </li>
+
+      </ul>
+
+      <span id="userGreeting" class="text-light ms-lg-3 mt-2 mt-lg-0 fw-semibold"></span>
+
+      <span class="visitor-counter ms-lg-3 mt-2 mt-lg-0">
+        Visitors: <strong id="visitorCount">0</strong>
+      </span>
+
+      <button
+        id="logoutBtn"
+        type="button"
+        class="btn btn-outline-light btn-sm ms-lg-2 mt-2 mt-lg-0 d-none"
+      >
+        Logout
+      </button>
+
+    </div>
+  </div>
+</nav>
+    <!-- Welcome section -->
+    <section class="container py-5" id="home">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="green-text">PEOPLE WHO CHANGED THE WORLD</p>
+          <h1 class="display-4 fw-bold">
+            Great People<br /><span class="green-text">Change the World.</span>
+          </h1>
+          <p>
+            Learn about famous sports players, history makers and scientists.
+          </p>
+    </section>
+          <!-- All Characters: automatic Bootstrap carousel -->
+      <section class="container py-4" id="allCharactersCarousel">
+        <div class="text-center mb-3"><p class="green-text mb-1">EXPLORE BIOGRAPHIES</p><h2 class="fw-bold">All Characters</h2><p class="text-secondary">Discover inspiring people from history, sports and science.</p></div>
+        <div id="charactersCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2800">
+          <div class="carousel-inner" id="charactersCarouselInner"></div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#charactersCarousel" data-bs-slide="prev" aria-label="Previous characters"><span class="carousel-control-prev-icon" aria-hidden="true"></span></button>
+          <button class="carousel-control-next" type="button" data-bs-target="#charactersCarousel" data-bs-slide="next" aria-label="Next characters"><span class="carousel-control-next-icon" aria-hidden="true"></span></button>
+          <div class="carousel-indicators" id="charactersCarouselIndicators"></div>
+        </div>
+      </section>
+      <div class="text-center category-buttons">
+             <button id="allCharacters" class="btn btn-dark active">All Characters</button>
+             <button id="famousAthletes" class="btn btn-dark">Famous Athletes</button>
+             <button id="famousHistorians" class="btn btn-dark">Famous Historians</button>
+             <button id="famousScientists" class="btn btn-dark">Famous Scientists</button>
+          </div>
+     <!-- first row start-->
+    <div class="container">
+      <div class="row g-3 mt-3">
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 character-card" id="imran-khan" data-category="athlete">
+            <img id="sport1"
+              src="images/Sportsman/imran-khan.jpg"
+              width="100%"
+              height="400px"
+              class="card-img-top person-img"
+              alt="Imran Khan"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Imran Khan</h5>
+              <p class="card-text">Pakistani cricket captain.</p>
+              <button
+                class="btn btn-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#imranBio"
+              >
+                Read Biography
+              </button>
+              <button
+                class="btn btn-outline-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#imranMore"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+         <div class="col-md-6 col-lg-3 ">
+          <div class="card h-100 character-card" id="quaid-e-azam" data-category="historian">
+            <img id="history1"
+              src="images/historyman/quaid-e-azam.jpg"
+              width="100%"
+              height="400px"
+              class="card-img-top person-img"
+              alt="Quaid-e-Azam"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Quaid-e-Azam</h5>
+              <p class="card-text">Founder of Pakistan.</p>
+              <button
+                class="btn btn-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#jinnahBio"
+              >
+                Read Biography
+              </button>
+              <button
+                class="btn btn-outline-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#jinnahMore"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+          <div class="col-md-6 col-lg-3 ">
+          <div class="card h-100 character-card" id="albert-einstein" data-category="scientist">
+            <img id="science1"
+              src="images/Scientists/albert-einstein.jpg"
+              width="100%"
+              height="400px"
+              class="card-img-top person-img"
+              alt="Albert Einstein"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Albert Einstein</h5>
+              <p class="card-text">Theoretical physicist.</p>
+              <button
+                class="btn btn-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#einsteinBio"
+              >
+                Read Biography
+              </button>
+              <button
+                class="btn btn-outline-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#einsteinMore"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+         <div class="col-md-6 col-lg-3 ">
+          <div class="card h-100 character-card" id="allama-iqbal" data-category="historian">
+            <img id="history2"
+              src="images/historyman/allama-iqbal.jpg"
+              width="100%"
+              height="400px"
+              class="card-img-top person-img"
+              alt="Allama Iqbal"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Allama Iqbal</h5>
+              <p class="card-text">Poet and philosopher.</p>
+              <button
+                class="btn btn-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#iqbalBio"
+              >
+                Read Biography
+              </button>
+              <button
+                class="btn btn-outline-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#iqbalMore"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+     <!-- first row end -->
+
+     <!-- second row start -->
+            <div class="col-md-6 col-lg-3 ">
+          <div class="card h-100 character-card" id="marie-curie" data-category="scientist">
+            <img id="science2"
+              src="images/Scientists/marie-curie.jpg"
+              width="100%"
+              height="400px"
+              class="card-img-top person-img"
+              alt="Marie Curie"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Marie Curie</h5>
+              <p class="card-text">Physicist and chemist.</p>
+              <button
+                class="btn btn-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#curieBio"
+              >
+                Read Biography
+              </button>
+              <button
+                class="btn btn-outline-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#curieMore"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 character-card" id="cristiano-ronaldo" data-category="athlete">
+            <img id="sport2"
+              src="images/Sportsman/cristiano-ronaldo.jpg"
+              width="100%"
+              height="400px"
+              class="card-img-top person-img"
+              alt="Cristiano Ronaldo"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Cristiano Ronaldo</h5>
+              <p class="card-text">Portuguese football star.</p>
+              <button
+                class="btn btn-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#ronaldoBio"
+              >
+                Read Biography
+              </button>
+              <button
+                class="btn btn-outline-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#ronaldoMore"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 ">
+          <div class="card h-100 character-card" id="nelson-mandela" data-category="historian">
+            <img id="history4"
+              src="images/historyman/nelson-mandela.jpg"
+              width="100%"
+              height="400px"
+              class="card-img-top person-img"
+              alt="Nelson Mandela"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Nelson Mandela</h5>
+              <p class="card-text">South African freedom leader.</p>
+              <button
+                class="btn btn-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#mandelaBio"
+              >
+                Read Biography
+              </button>
+              <button
+                class="btn btn-outline-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#mandelaMore"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+          <div class="col-md-6 col-lg-3 ">
+          <div class="card h-100 character-card" id="muhammad-ali" data-category="athlete">
+            <img id="sport4"
+              src="images/Sportsman/muhammad-ali.jpg"
+              width="100%"
+              height="400px"
+              class="card-img-top person-img"
+              alt="Muhammad Ali"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Muhammad Ali</h5>
+              <p class="card-text">World-famous boxer.</p>
+              <button
+                class="btn btn-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#aliBio"
+              >
+                Read Biography
+              </button>
+              <button
+                class="btn btn-outline-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#aliMore"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+     <!-- second row end -->
+       
+     <!-- third row start -->
+         <div class="col-md-6 col-lg-3 ">
+          <div class="card h-100 character-card" id="salahuddin-ayyubi" data-category="historian">
+            <img id="history3"
+              src="images/historyman/salahuddin-ayyubi.jpg"
+              width="100%"
+              height="400px"
+              class="card-img-top person-img"
+              alt="Salahuddin Ayyubi"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Salahuddin Ayyubi</h5>
+              <p class="card-text">Medieval Muslim leader.</p>
+              <button
+                class="btn btn-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#salahBio"
+              >
+                Read Biography
+              </button>
+              <button
+                class="btn btn-outline-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#salahMore"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+         <div class="col-md-6 col-lg-3 ">
+          <div class="card h-100 character-card" id="abdus-salam" data-category="scientist">
+            <img id="science3"
+              src="images/Scientists/abdus-salam.jpg"
+              width="100%"
+              height="400px"
+              class="card-img-top person-img"
+              alt="Dr. Abdus Salam"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Dr. Abdus Salam</h5>
+              <p class="card-text">Pakistani Nobel physicist.</p>
+              <button
+                class="btn btn-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#salamBio"
+              >
+                Read Biography
+              </button>
+              <button
+                class="btn btn-outline-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#salamMore"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 ">
+          <div class="card h-100 character-card" id="stephen-curry" data-category="athlete">
+            <img id="sport3"
+              src="images/Sportsman/stephen-curry.jpg"
+              width="100%"
+              height="400px"
+              class="card-img-top person-img"
+              alt="Stephen Curry"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Stephen Curry</h5>
+              <p class="card-text">Basketball star.</p>
+              <button
+                class="btn btn-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#curryBio"
+              >
+                Read Biography
+              </button>
+              <button
+                class="btn btn-outline-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#curryMore"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 character-card" id="alexander-fleming" data-category="scientist">
+            <img id="science4"
+              src="images/Scientists/alexander-fleming.jpg"
+              width="100%"
+              height="400px"
+              class="card-img-top person-img"
+              alt="Alexander Fleming"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Alexander Fleming</h5>
+              <p class="card-text">Discoverer of penicillin.</p>
+              <button
+                class="btn btn-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#flemingBio"
+              >
+                Read Biography
+              </button>
+              <button
+                class="btn btn-outline-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#flemingMore"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+     <!-- third row end -->
+       
+
+      <!-- four row start -->
+          <div class="col-md-6 col-lg-3 ">
+          <div class="card h-100 character-card" id="neymar" data-category="athlete">
+            <img id="science4"
+              src="images/Sportsman/neymar.jpg"
+              width="100%"
+              height="400px"
+              class="card-img-top person-img"
+              alt="Neyamr jr"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Neymar Jr</h5>
+              <p class="card-text">Brazilian football star</p>
+              <button
+                class="btn btn-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#neymarBio"
+              >
+                Read Biography
+              </button>
+              <button
+                class="btn btn-outline-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#neymarMore"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+      </div>
+
+         <div class="col-md-6 col-lg-3 ">
+          <div class="card h-100 character-card" id="fatima-jinnah" data-category="historian">
+            <img id="science4"
+              src="images/historyman/fatima-jinnah.jpg"
+              width="100%"
+              height="400px"
+              class="card-img-top person-img"
+              alt="Fatima Jinnah"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Fatima Jinnah  </h5>
+              <p class="card-text">Mother of the nation</p>
+              <button
+                class="btn btn-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#fatimaBio"
+              >
+                Read Biography
+              </button>
+              <button
+                class="btn btn-outline-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#fatimaMore"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+       </div>
+      </div>
+
+       <!-- four row end -->
+    <!-- Modal Start -->
+    
+    <!-- fatima jinnah modal -->
+       <div class="modal fade" id="fatimaBio" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Imran Khan - Biography</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+          <p>Fatima Jinnah was the younger sister of Muhammad Ali Jinnah, the founder of Pakistan, and is known as Madar-e-Millat, “Mother of the Nation”. She was born on 31 July 1893 and died on 9 July 1967. Of Jinnah’s six siblings, she was the closest to him. Most sources place her birth in Karachi, though a few give other locations. Fatima Jinnah +3 </p>
+           <p>Unusually for a Muslim girl of her time, she was sent to school and then to professional training. She qualified as a dentist at Dr. Ahmad Dental College in Calcutta (graduating in 1923) and opened her own clinic in Bombay. After the death of her brother’s wife, Ruttie, in 1929, she moved into his household and helped raise his daughter, Dina. From then on she was his closest companion, and she accompanied him on political tours and during his years in London.</p>
+After Pakistan was created in 1947, she stayed close to her brother during the first difficult year, when the new state faced a refugee crisis and a lack of resources. She was with him until his death in September 1948.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="modal fade" id="fatimaMore" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Imran Khan - Read More</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <h6>Education and Career</h6>
+            <p>
+              Futsal and street football in São Vicente
+              <br>
+Santos FC youth academy (from about age 11)
+<br>
+Santos senior team (2009–2013)
+<br>
+FC Barcelona, Spain (2013–2017)
+<br>
+Paris Saint-Germain, France (2017–2023)
+<br>
+Al Hilal, Saudi Arabia (2023–2025)
+<br>
+Returned to his boyhood club Santos in January 2025 
+<br>
+ESPN
+<br>
+Brazil national team (2010–2026)
+            </p>
+           
+            <h6>Career Timelines</h6>
+              <p>Year	Milestone
+                <br><br>
+1992	Born in Mogi das Cruzes, Brazil
+<br>
+2009	Senior debut for Santos at 17
+<br>
+2010–12	Wins Campeonato Paulista titles and the Copa do Brasil with Santos
+<br>
+2011	Wins the Copa Libertadores; wins FIFA’s Puskás Award for goal of the year
+<br>
+2013	Wins the FIFA Confederations Cup with Brazil; joins Barcelona
+<br>
+2014–15	Barcelona win La Liga, Copa del Rey and Champions League
+<br>
+2016	Wins Olympic gold for Brazil in Rio
+<br>
+2017	Joins PSG for a world-record fee of €222 million
+<br>
+2020	Reaches the Champions League final with PSG
+<br>
+2022	Equals and then passes Pelé’s Brazil scoring record
+<br>
+2023	Joins Al Hilal; suffers a serious knee injury
+<br>
+2025	Returns to Santos
+<br>
+2026	Plays his fourth World Cup; retires from international football
+            </p>
+            <h6>Struggles</h6>
+ <p>After retiring from cricket, he faced the challenge of establishing a political party and building support over many years. His charitable work also required extensive fundraising and organisation. During his time in politics, he faced strong opposition and controversy over his policies and leadership. His political career remains a subject of public debate in Pakistan. At the 2026 World Cup, muscle injuries limited him to two of Brazil’s five games. Some observers also criticise his temperament and his habit of going down easily, and he has served disciplinary suspensions. A Spanish court case over his 2013 transfer to Barcelona ended with his acquittal. </p>
+     
+            <h6>Key Contributions</h6>
+            <p>
+             Brazil’s top scorer. He is Brazil’s all-time leading scorer with 80 goals, passing Pelé’s total of 77. <br>
+<a href="">ESPN</a><br>
+A member of the “MSN” attack with Lionel Messi and Luis Suárez at Barcelona, one of the most prolific forward lines in football history.
+<br>
+Trophy winner at the highest level. He won the Champions League, domestic league titles in Spain and France, and the Copa Libertadores.
+<br>
+Olympic hero. He captained Brazil to its first Olympic football gold in 2016, scoring the winning penalty in the final against Germany.
+<br>
+Four World Cups. The 2026 tournament was his fourth for Brazil. 
+<br>
+            </p>
+            <h6>Style</h6>
+<p> He is known for dribbling, flair and creativity, which influenced a generation of young players. </p>
+            
+            <h6>Awards and Honors</h6>
+           <p>FIFA Puskás Award for goal of the year (2011)
+            <br>
+South American Footballer of the Year (2011, 2012)
+<br>
+Golden Ball at the FIFA Confederations Cup (2013)
+<br>
+Third in the Ballon d’Or voting (2015)
+<br>
+Olympic gold medal (2016)
+<br>
+Selected for the FIFPro World XI and several league team-of-the-year lists
+<br>
+Brazilian champion with Santos, Spanish champion and Champions League winner with Barcelona, and five-time French champion with PSG (verify exact seasons before publishing)
+<br>
+Selected Works and Mediab
+<br>
+Neymar: The Perfect Chaos (Netflix documentary series, 2022)
+<br>
+Official profiles and match reports on FIFA.com, CBF (Brazilian Football Confederation) and the club sites for Santos, Barcelona and PSG</p>
+<h6>Legacy</h6>
+<p>Neymar is widely seen as one of the most gifted forwards of his generation and a symbol of Brazil’s attacking tradition. Debate continues over how many major individual titles he might have won without injuries, which gives your page a balanced view.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- fatima jinnah end -->
+
+
+    <!-- Neymar jr modal -->
+      <div class="modal fade" id="neymarBio" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Neymar Jr - Biography</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>Neymar da Silva Santos Júnior was born on 5 February 1992 in Mogi das Cruzes, in São Paulo state, and grew up in the port city of São Vicente near Santos. His father, also named Neymar, was a former footballer who became his first coach and later his agent. His mother is Nadine Santos, and he has a sister, Rafaella. He learned the game on futsal courts and street pitches, which shaped his quick footwork and dribbling. </p>
+              <p> fotmob He joined the youth system of Santos FC as a boy and made his first-team debut in 2009, aged 17. He has a son, Davi Lucca, born in 2011. Off the pitch he runs the Instituto Projeto Neymar Jr., a charitable project in Praia Grande that supports children and young people through education and sport. </p>
+              <p> Current status (November 2026): He is captain of Santos, and in late October 2026 he was handed a two-match suspension for his conduct after a red card against Bahia. His Santos contract runs until December 2026. He has said he will see it through and will decide afterwards whether to stay, move on or retire from club football, and he has already confirmed his retirement from international duty. </p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="modal fade" id="neymarMore" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Imran Khan - Read More</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <h6>Education and Career</h6>
+            <p>
+              Futsal and street football in São Vicente
+              <br>
+Santos FC youth academy (from about age 11)
+<br>
+Santos senior team (2009–2013)
+<br>
+FC Barcelona, Spain (2013–2017)
+<br>
+Paris Saint-Germain, France (2017–2023)
+<br>
+Al Hilal, Saudi Arabia (2023–2025)
+<br>
+Returned to his boyhood club Santos in January 2025 
+<br>
+ESPN
+<br>
+Brazil national team (2010–2026)
+            </p>
+           
+            <h6>Career Timelines</h6>
+              <p>Year	Milestone
+                <br><br>
+1992	Born in Mogi das Cruzes, Brazil
+<br>
+2009	Senior debut for Santos at 17
+<br>
+2010–12	Wins Campeonato Paulista titles and the Copa do Brasil with Santos
+<br>
+2011	Wins the Copa Libertadores; wins FIFA’s Puskás Award for goal of the year
+<br>
+2013	Wins the FIFA Confederations Cup with Brazil; joins Barcelona
+<br>
+2014–15	Barcelona win La Liga, Copa del Rey and Champions League
+<br>
+2016	Wins Olympic gold for Brazil in Rio
+<br>
+2017	Joins PSG for a world-record fee of €222 million
+<br>
+2020	Reaches the Champions League final with PSG
+<br>
+2022	Equals and then passes Pelé’s Brazil scoring record
+<br>
+2023	Joins Al Hilal; suffers a serious knee injury
+<br>
+2025	Returns to Santos
+<br>
+2026	Plays his fourth World Cup; retires from international football
+            </p>
+            <h6>Struggles</h6>
+ <p>After retiring from cricket, he faced the challenge of establishing a political party and building support over many years. His charitable work also required extensive fundraising and organisation. During his time in politics, he faced strong opposition and controversy over his policies and leadership. His political career remains a subject of public debate in Pakistan. At the 2026 World Cup, muscle injuries limited him to two of Brazil’s five games. Some observers also criticise his temperament and his habit of going down easily, and he has served disciplinary suspensions. A Spanish court case over his 2013 transfer to Barcelona ended with his acquittal. </p>
+     
+            <h6>Key Contributions</h6>
+            <p>
+             Brazil’s top scorer. He is Brazil’s all-time leading scorer with 80 goals, passing Pelé’s total of 77. <br>
+<a href="">ESPN</a><br>
+A member of the “MSN” attack with Lionel Messi and Luis Suárez at Barcelona, one of the most prolific forward lines in football history.
+<br>
+Trophy winner at the highest level. He won the Champions League, domestic league titles in Spain and France, and the Copa Libertadores.
+<br>
+Olympic hero. He captained Brazil to its first Olympic football gold in 2016, scoring the winning penalty in the final against Germany.
+<br>
+Four World Cups. The 2026 tournament was his fourth for Brazil. 
+<br>
+            </p>
+            <h6>Style</h6>
+<p> He is known for dribbling, flair and creativity, which influenced a generation of young players. </p>
+            
+            <h6>Awards and Honors</h6>
+           <p>FIFA Puskás Award for goal of the year (2011)
+            <br>
+South American Footballer of the Year (2011, 2012)
+<br>
+Golden Ball at the FIFA Confederations Cup (2013)
+<br>
+Third in the Ballon d’Or voting (2015)
+<br>
+Olympic gold medal (2016)
+<br>
+Selected for the FIFPro World XI and several league team-of-the-year lists
+<br>
+Brazilian champion with Santos, Spanish champion and Champions League winner with Barcelona, and five-time French champion with PSG (verify exact seasons before publishing)
+<br>
+Selected Works and Mediab
+<br>
+Neymar: The Perfect Chaos (Netflix documentary series, 2022)
+<br>
+Official profiles and match reports on FIFA.com, CBF (Brazilian Football Confederation) and the club sites for Santos, Barcelona and PSG</p>
+<h6>Legacy</h6>
+<p>Neymar is widely seen as one of the most gifted forwards of his generation and a symbol of Brazil’s attacking tradition. Debate continues over how many major individual titles he might have won without injuries, which gives your page a balanced view.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Neymar jr end -->
+
+
+    <!-- Imran Khan modals -->
+    <div class="modal fade" id="imranBio" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Imran Khan - Biography</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>Imran Ahmed Khan Niazi was born on 5 October 1952 in Lahore, Pakistan. He grew up in a family that valued education and sports. From an early age, he developed a strong interest in cricket and went on to become one of Pakistan's most recognised international cricketers.</p>
+            <p>He attended Aitchison College in Lahore, continued his education at the Royal Grammar School in Worcester, England, and studied at Keble College, University of Oxford. He made his international cricket debut in 1971 and became captain of Pakistan's national cricket team in the 1980s.</p>
+            <p>His greatest sporting achievement came in 1992, when he led Pakistan to its first Cricket World Cup victory. After retiring from international cricket, he established a cancer hospital in memory of his mother and entered politics. He founded Pakistan Tehreek-e-Insaf (PTI) in 1996 and served as Pakistan's prime minister from 2018 to 2022.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="modal fade" id="imranMore" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Imran Khan - Read More</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <h6>Education and Career</h6>
+            <p>
+             - Aitchison College, Lahore, Pakistan.
+             <br>
+- Royal Grammar School, Worcester, England.
+<br>
+- Keble College, University of Oxford.
+<br>
+- Made his Test cricket debut in 1971.
+<br>
+- Became captain of Pakistan's cricket team in the 1980s.
+<br>
+- Led Pakistan to victory in the 1992 Cricket World Cup.
+<br>
+- Founded Shaukat Khanum Memorial Cancer Hospital.
+<br>
+- Founded Pakistan Tehreek-e-Insaf in 1996.
+<br>
+- Served as the 22nd prime minister of Pakistan from 2018 to 2022. 
+            </p>
+            <h6>ICC</h6>
+            <p>+1</p>
+            <h6>Career Timelines</h6>
+              <p>Year	Milestone
+                <br><br>
+1952	Born in Lahore, Pakistan
+<br>
+1971	Makes his Test cricket debut
+<br>
+1982	Becomes captain of Pakistan's cricket team
+<br>
+1987	Pakistan reaches the Cricket World Cup semi-finals
+<br>
+1992	Leads Pakistan to its first Cricket World Cup title
+<br>
+1994	Shaukat Khanum Memorial Cancer Hospital opens in Lahore
+<br>
+1996	Founds Pakistan Tehreek-e-Insaf
+<br>
+2008	Namal educational project is established
+<br>
+2010	Inducted into the ICC Cricket Hall of Fame
+<br>
+2018	Becomes prime minister of Pakistan
+<br>
+2022	Leaves the office of prime minister</p>
+<p>Pakistan Cricket Board (PCB) Official Website
++2</p>
+            <h6>Struggles</h6>
+             <p>Imran Khan faced significant challenges throughout his sporting and public career. As a captain, he had to manage the pressure of international competition and build a team capable of competing against established cricketing nations.
+
+After retiring from cricket, he faced the challenge of establishing a political party and building support over many years. His charitable work also required extensive fundraising and organisation. During his time in politics, he faced strong opposition and controversy over his policies and leadership. His political career remains a subject of public debate in Pakistan.</p>
+            <h6>Key Contributions</h6>
+            <p>
+              - Led Pakistan to its historic 1992 Cricket World Cup victory.
+              <br>
+- Became known for his skills as a fast bowler, batsman and all-rounder.
+<br>
+- Established Shaukat Khanum Memorial Cancer Hospital and Research Centre in Lahore.
+<br>
+- Supported the development of educational opportunities through projects including Namal.
+<br>
+- Founded PTI and participated in Pakistan's electoral and parliamentary politics.
+<br>
+- Helped raise the international profile of Pakistani cricket. 
+<br><br>
+  UN Trade and Development (UNCTAD)
+  +1
+            </p>
+            <h6>Awards and Honors</h6>
+            <p>- ICC Cricket Hall of Fame: Inducted in 2010 according to the ICC's official profile.
+              <br>
+- 1992 Cricket World Cup: Winning captain of Pakistan.
+<br>
+- Pride of Performance: Received in 1983.
+<br>
+- Hilal-e-Imtiaz: Received in 1992.
+<br>
+- Recognised internationally for his cricketing career and charitable work.</p>
+<h6>Selected Books</h6>
+<p>- Pakistan: A Personal History — Imran Khan.
+  <br>
+- Warrior Race: A Jour
+ Through the Land of the Tribal Pathans — Imran Khan.
+<br>
+- Indus Journey: A Personal View of Pakistan — Imran Khan.
+<br>
+- Imran Khan: The Cricketer, The Celebrity, The Politician — Christopher Sandford.</p>
+<h6>Legacy</h6>
+<p>Imran Khan's legacy includes achievements in cricket, charitable work and national politics. His leadership during the 1992 World Cup remains a major moment in Pakistan's sporting history. His cancer hospital project also became an important part of his public life. His political legacy is debated, making it useful to present documented achievements alongside different views of his time in government.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cristiano Ronaldo modals -->
+    <div class="modal fade" id="ronaldoBio" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Cristiano Ronaldo - Biography</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>Cristiano Ronaldo dos Santos Aveiro was born on 5 February 1985 in Funchal, Madeira, Portugal. He grew up in a working-class family and developed a passion for football at a very young age. His father, José Dinis Aveiro, worked as a kit man at a local football club, while his mother, Maria Dolores dos Santos Aveiro, worked as a cook and cleaner.</p>
+            <p>Ronaldo joined the youth academy of Sporting CP in Lisbon as a teenager. His exceptional speed, dribbling and goal-scoring ability attracted the attention of Manchester United, which signed him in 2003. He later played for Real Madrid, Juventus, Manchester United again, and Al-Nassr in Saudi Arabia. He also became captain of Portugal's national team and helped his country win the UEFA European Championship in 2016.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="modal fade" id="ronaldoMore" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Cristiano Ronaldo - Read More</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>
+             <h6>Education and Career </h6>
+- Attended school in Madeira, Portugal, before focusing on professional football.
+<br>
+- Joined Sporting CP's youth academy in 1997.
+<br>
+- Made his senior debut for Sporting CP in 2002.
+<br>
+- Joined Manchester United in 2003.
+<br>
+- Played for Real Madrid from 2009 to 2018.
+<br>
+- Played for Juventus from 2018 to 2021.
+<br>
+- Returned to Manchester United in 2021.
+<br>
+- Joined Al-Nassr in 2023.
+<br>
+- Captained Portugal in international competitions.
+            </p>
+            <h6>Carrier Timelines</h6>
+             <p>
+Year	Milestone
+<br><br>
+1985	Born in Madeira, Portugal
+<br>
+2002	Makes senior debut for Sporting CP
+<br>
+2003	Joins Manchester United
+<br>
+2008	Wins his first Ballon d'Or
+<br>
+2009	Transfers to Real Madrid
+<br>
+2016	Wins UEFA Euro with Portugal
+<br>
+2018	Joins Juventus
+<br>
+2021	Returns to Manchester United
+<br>
+2023	Joins Al-Nassr
+<br>
+2024	Becomes the first men's international footballer to reach 900 official career goals</p>
+            <h6>Struggles</h6>
+            <p>
+              
+Ronaldo grew up in a family with limited financial resources. Moving away from Madeira at a young age meant living far from his family while pursuing his football career. He also faced intense competition, pressure from supporters and the media, and the challenge of maintaining high performance across many seasons.
+
+His career has included difficult defeats and criticism, but he continued training and adapting his game as he grew older. His discipline and commitment to football became major parts of his public image.
+
+            </p>
+            <h6>Key Contributions</h6>
+            <p>
+  - Helped Portugal win the UEFA European Championship in 2016.
+  <br>
+- Won multiple domestic league and European club titles.
+<br>
+- Became Real Madrid's all-time leading goalscorer in official matches.
+<br>
+- Set major scoring records in the UEFA Champions League and men's international football.
+<br>
+- Inspired young footballers through his training, discipline and professional career.
+<br>
+- Supported charitable and humanitarian initiatives.</p>
+
+<h6>Awards and Honors</h6>
+<p>- Ballon d'Or: Five-time winner.
+  <br>
+- UEFA European Championship: Winner with Portugal in 2016.
+<br>
+- UEFA Champions League: Five-time winner as a player.
+<br>
+- Multiple league titles in England, Spain and Italy.
+<br>
+- Numerous European Golden Shoe and top-scorer awards.
+<br>
+- Portugal's all-time leading men's international goalscorer.</p>
+<h6>Selected Books</h6>
+<p>- Moments — Cristiano Ronaldo.
+  <br>
+- Cristiano Ronaldo: The Biography — Guillem Balagué.
+<br>
+- Ronaldo: The Obsession for Perfection — Luca Caioli.
+<br>
+- Cristiano Ronaldo: The Ultimate Fan Book — various editions and authors.</p>
+<h6>Legacy</h6>
+<p>Cristiano Ronaldo is widely regarded as one of the most influential footballers of his generation. His goal-scoring records, athletic preparation and performances for both club and country have shaped modern football. His career also demonstrates how dedication, persistence and consistent practice can help an athlete perform at an elite level for many years.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stephen Curry modals -->
+    <div class="modal fade" id="curryBio" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Stephen Curry - Biography</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>Wardell Stephen Curry II, commonly known as Stephen Curry or Steph Curry, was born on 14 March 1988 in Akron, Ohio, United States. He grew up in a sports-oriented family. His father, Dell Curry, was a professional basketball player, and his younger brother, Seth Curry, also became an NBA player.</p>
+            <p>Stephen developed his basketball skills while growing up in North Carolina. He attended Charlotte Christian School and later studied at Davidson College. Although he was not initially considered one of the biggest prospects in college basketball, he became famous for his accurate long-distance shooting and excellent ball-handling skills.</p>
+            <p>In 2009, the Golden State Warriors selected him seventh overall in the NBA Draft. Curry became a central figure in the Warriors' championship teams and helped change modern basketball through his exceptional three-point shooting. He won four NBA championships with the Warriors and two NBA Most Valuable Player awards. He also won an Olympic gold medal with the United States at the 2024 Paris Olympics.</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="modal fade" id="curryMore" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Stephen Curry - Read More</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <h6>Education and Career</h6>
+            <p>
+             - Charlotte Christian School, North Carolina.
+             <br>
+- Davidson College, where he played college basketball.
+<br>
+- Selected seventh overall by the Golden State Warriors in the 2009 NBA Draft.
+<br>
+- Became an NBA All-Star in 2014.
+<br>
+- Won his first NBA championship in 2015.
+<br>
+- Won consecutive NBA MVP awards in 2015 and 2016.
+<br>
+- Won NBA championships with Golden State in 2015, 2017, 2018 and 2022.
+<br>
+- Won the NBA Finals Most Valuable Player award in 2022.
+<br>
+- Won Olympic gold with Team USA in 2024. 
+            </p>
+
+            <h6>Career Timelines</h6>
+          <p>Year	Milestone
+            <br><br>
+1988	Born in Akron, Ohio.
+<br>
+2006	Begins playing college basketball at Davidson
+ <br>
+2008	Leads Davidson on a memorable NCAA tournament run
+<br>
+2009	Drafted by the Golden State Warriors.
+<br>
+2013	Sets a then-NBA single-season record with 272 three-pointers
+<br>
+2015	Wins his first NBA championship and first MVP award
+<br>
+2016	Wins his second consecutive MVP award
+<br>
+2018	Wins his third NBA championship
+<br>
+2021	Becomes the NBA's career leader in made three-pointers
+<br>
+2022	Wins his fourth NBA title and first Finals MVP
+<br>
+2024	Wins Olympic gold with Team USA</p>
+            <h6>Struggle</h6>
+            <p>Curry faced doubts about his physical size and whether his playing style would succeed against stronger professional players. During his early NBA career, ankle injuries also disrupted his progress and required careful rehabilitation.He responded by improving his strength, conditioning, ball handling and shooting technique. His later success demonstrated how skill development,
+               teamwork and adapting to challenges can be just as important as physical attributes in basketball.</p>
+            <h6>Key Contributions</h6>
+            <p>
+               Helped popularise high-volume three-point shooting in modern basketball.
+               <br>
+- Became the NBA's all-time leader in career three-pointers made.
+<br>
+- Led the Golden State Warriors to four NBA championships.
+<br>
+- Won two NBA Most Valuable Player awards.
+<br>
+- Won the 2022 NBA Finals MVP award.
+<br>
+- Won an Olympic gold medal in Paris in 2024.
+<br>
+- Inspired young basketball players to develop shooting accuracy, movement and ball-handling skills. 
+  
+            </p>
+            <h6>Awards and Honors</h6>
+            <p>- NBA Champion: Four-time winner.
+              <br>
+- NBA Most Valuable Player: Two-time winner.
+<br>
+- NBA Finals Most Valuable Player: 2022.
+<br>
+- NBA All-Star: Multiple selections.b
+<br>
+- Olympic gold medal: 2024, with the United States.
+<br>
+- NBA three-point records: Career leader in made three-pointers, according to the NBA's historical records.
+<br>
+- NBA scoring champion: 2016 and 2021. </p>
+<h6>Selected Books</h6>
+<p>- Stephen Curry: The Inspiring Story of One of Basketball's Sharpest Shooters — Clayton Geoffreys.
+  <br>
+- The Rise of Stephen Curry — various biographies and sports publications.
+<br>
+- Stephen Curry: The Children's Book — various editions and authors.</p>
+<h6>Legacy</h6>
+<p>Stephen Curry is widely recognised as one of the most influential shooters in basketball history. His ability to score from long range helped change how teams approach offensive strategy. His career illustrates the importance of practice, creativity, resilience and confidence in developing sporting excellence.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Muhammad Ali modals -->
+    <div class="modal fade" id="aliBio" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Muhammad Ali - Biography</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>Muhammad Ali was born Cassius Marcellus Clay Jr. on 17 January 1942 in Louisville, Kentucky, United States. He became interested in boxing as a young teenager after his bicycle was stolen and he told a police officer that he wanted to learn how to fight. The officer encouraged him to train in boxing.</p>
+            <p>Ali developed exceptional speed, footwork and confidence in the ring. He won a gold medal in the light heavyweight division at the 1960 Rome Olympics and became a professional boxer later that year. In 1964, he defeated Sonny Liston to become the world heavyweight champion.</p>
+            <p>After embracing Islam, he adopted the name Muhammad Ali. He became famous not only for his boxing achievements but also for speaking openly about racial equality, religious beliefs and social issues. His professional career included several historic fights, and he became one of the most recognisable sporting figures of the twentieth century. He died on 3 June 2016 in Scottsdale, Arizona.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="modal fade" id="aliMore" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Muhammad Ali - Read More</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <h6>Education and Career</h6>
+            <p>
+             - Attended Central High School in Louisville, Kentucky.
+             <br>
+- Began amateur boxing as a teenager.
+<br>
+- Won a gold medal at the 1960 Rome Olympics.
+<br>
+- Turned professional in 1960.
+<br>
+- Defeated Sonny Liston to win the heavyweight championship in 1964.
+<br>
+- Adopted the name Muhammad Ali in 1964.
+<br>
+- Returned to boxing after a period away from the ring in the late 1960s and early 1970s.
+<br>
+- Fought George Foreman in the famous 1974 Rumble in the Jungle.
+<br>
+- Retired from professional boxing in 1981.
+<br>
+- Became known for humanitarian work and international advocacy. 
+            </p>
+            <h6>Career Timelines</h6>
+           <p>Year	Milestone
+            <br><br>
+1942	Born in Louisville, Kentucky
+<br>
+1954	Begins boxing training as a teenager
+<br>
+1960	Wins Olympic gold in Rome
+<br>
+1960	Begins his professional boxing career
+<br>
+1964	Defeats Sonny Liston to become heavyweight champion
+<br>
+1967	Refuses military induction on religious grounds and is barred from boxing
+<br>
+1971	The US Supreme Court overturns his conviction
+<br>
+1974	Defeats George Foreman in the Rumble in the Jungle
+<br>
+1975	Wins the famous fight against Joe Frazier known as the Thrilla in Manila
+<br>
+1978	Wins the heavyweight championship for a third time
+<br>
+1981	Retires from professional boxing
+<br>
+2005	Receives the Presidential Medal of Freedom
+<br>
+2016	Dies in Arizona, United States
+
+</p>
+
+            <h6>Struggle</h6>
+          <p>Ali faced major challenges both inside and outside the boxing ring. In 1967, he refused induction into the US military, explaining that his religious beliefs opposed participation in the Vietnam War. He was convicted, stripped of his heavyweight title and prevented from boxing professionally during a significant period of his career. The US Supreme Court overturned his conviction in 1971.
+
+He also faced difficult defeats against other leading boxers and the physical demands of a long professional career. In later life, he lived with Parkinson's syndrome, which affected his movement and speech. Despite these challenges, he continued to participate in charitable and humanitarian activities. 
+</p>
+            <h6>Key Contributions</h6>
+            <p>
+- Won Olympic gold in boxing at the 1960 Rome Olympics.
+<br>
+- Became the first boxer to win the world heavyweight championship three times.
+<br>
+- Participated in landmark fights, including the Rumble in the Jungle and the Thrilla in Manila.
+<br>
+- Became a prominent public voice on racial equality, religion and personal freedom.
+<br>
+- Supported humanitarian causes and international peace initiatives.
+<br>
+- Inspired generations of athletes through his confidence, footwork, speed and determination. 
+  
+            </p>
+            <h6>Awards and Honors</h6>
+            <p>- Olympic gold medal: 1960 Rome Olympics.
+              <br>
+- World heavyweight champion: Won the title three times during his career.
+<br>
+- Presidential Medal of Freedom: Awarded in 2005.
+<br>
+- Sports Illustrated Sportsman of the Century: Named in 1999.
+<br>
+- BBC Sports Personality of the Century: Recognised in 1999.
+<br>
+- Widely honoured for his sporting achievements and humanitarian work. </p>
+<h6>Selected Books</h6>
+<p>- The Greatest: My Own Story — Muhammad Ali with Richard Durham.
+  <br>
+- The Soul of a Butterfly: Reflections on Life's Journey — Muhammad Ali and Hana Yasmeen Ali.
+<br>
+- Muhammad Ali: His Life and Times — Thomas Hauser.
+<br>
+- King of the World — David Remnick.</p>
+<h6>Legacy</h6>
+<p>Muhammad Ali is remembered as one of the greatest heavyweight boxers in history. His combination of speed, technique, confidence and tactical ability changed expectations of heavyweight boxing. Beyond sports, he became a global cultural figure whose public stands on religion, race and freedom continue to be discussed. His life demonstrates the influence an athlete can have beyond the boundaries of competition.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quaid-e-Azam modals -->
+    <div class="modal fade" id="jinnahBio" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Quaid-e-Azam - Biography</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+<p>Muhammad Ali Jinnah was born on 25 December 1876 in Karachi, in what was then British India. His father, Jinnahbhai Poonja, was a successful merchant, and his mother was Mithibai. He was the eldest of seven children. His early schooling was in Karachi, including the Sindh Madrasatul Islam and the Christian Missionary Society High School.</p>
+            <p>At 16 he travelled to London to join a trading firm, but he decided to study law instead and joined Lincoln’s Inn in 1893. He was called to the bar in 1896 at 19, among the youngest Indians to do so at the time. He returned to India and began practising law in Bombay. He quickly became one of the most successful and respected barristers in the country, known for his sharp arguments, discipline and incorruptible character.</p>
+            <p>In 1918 he married Rattanbai (Ruttie) Petit, and they had a daughter, Dina. Ruttie died in 1929. His sister Fatima Jinnah was his closest companion in his later years and a political figure in her own right.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="modal fade" id="jinnahMore" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Quaid-e-Azam - Read More</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+<p>Founder of Pakistan &#183; First Governor-General of Pakistan</p>
+            <h6>Education and Career</h6>
+            <p>Sindh Madrasatul Islam and Christian Missionary Society High School, Karachi<br>Lincoln’s Inn, London: called to the bar (1896)<br>Barrister in Bombay, with a very successful practice<br>Member of the Imperial Legislative Council (1910 onwards)<br>Joined the Indian National Congress (1906) and the All-India Muslim League (1913)<br>President of the Muslim League and leader of the Pakistan Movement<br>First Governor-General of Pakistan (1947–48)</p>
+            <h6>Career Timeline</h6>
+            <p>Year	Milestone<br><br>1876	Born in Karachi<br>1896	Called to the bar, begins practice in Bombay<br>1906	Joins the Indian National Congress<br>1913	Joins the All-India Muslim League<br>1916	Lucknow Pact between the Congress and the League<br>1929	Presents his Fourteen Points<br>1934	Returns from London and takes up the leadership of the Muslim League<br>1940	Lahore Resolution (23 March)<br>1947	Pakistan is created (14 August); becomes Governor-General<br>1948	Dies in Karachi (11 September)</p>
+            <h6>Struggles</h6>
+            <p>Jinnah began his political life working for Hindu–Muslim unity, and was once called its “ambassador”. Over time, disagreements with the Congress led by Gandhi and Nehru, and the growing mistrust between communities, led him to believe that Muslims needed constitutional guarantees and, later, a separate homeland. In the 1937 provincial elections the Muslim League performed poorly, and he spent the following years rebuilding the party into a mass movement. He campaigned against both British resistance and Congress opposition.<br>He also struggled with his health. He suffered from tuberculosis and lung disease for years and hid it from nearly everyone, fearing it would weaken his movement. After independence he faced enormous challenges, including millions of refugees, the lack of a capital and administration, the division of assets and the conflict over Kashmir. He died just over a year after Pakistan was created.</p>
+            <h6>Key Contributions</h6>
+            <p>Led the political struggle that resulted in the creation of Pakistan in 1947<br>Presented the Fourteen Points (1929) to protect Muslim political rights<br>Supported the Lahore Resolution (1940), which became the foundation of the Pakistan demand<br>Won a decisive electoral mandate for the Muslim League in the 1945–46 elections<br>As Governor-General, laid the foundations of the new state, stressing unity, faith and discipline, and equal rights for minorities (see his address of 11 August 1947)</p>
+            <h6>Awards and Honors</h6>
+            <p>Quaid-e-Azam (“Great Leader”) and Baba-e-Qaum (“Father of the Nation”)<br>First Governor-General of Pakistan<br>His portrait appears on Pakistani banknotes<br>Mazar-e-Quaid, his mausoleum in Karachi, is a national monument<br>Quaid-e-Azam International Airport and many institutions named after him<br>Quaid-e-Azam Day is observed on 25 December</p>
+            <h6>Selected Works and Books</h6>
+            <p>Speeches and Statements as Governor-General of Pakistan, 1947–48<br>Jinnah: Creator of Pakistan by Hector Bolitho (1954)<br>My Brother by Fatima Jinnah<br>Jinnah of Pakistan by Stanley Wolpert (1984)<br>The Sole Spokesman by Ayesha Jalal (1985)</p>
+            <h6>Legacy</h6>
+            <p>Jinnah created a state of more than 200 million people today. His emphasis on “Unity, Faith, Discipline” remains the national motto. Historians continue to debate his politics, such as how he used the idea of Pakistan, which is why it helps to read several authors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Allama Iqbal modals -->
+    <div class="modal fade" id="iqbalBio" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Allama Iqbal - Biography</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+<p>Muhammad Iqbal was born on 9 November 1877 in Sialkot, Punjab. His father, Sheikh Noor Muhammad, was a deeply religious man. His family traced its roots to Kashmiri Brahmins who had converted to Islam. Iqbal’s teacher at Scotch Mission College, Maulvi Syed Mir Hassan, recognised his talent early and shaped his love for Persian, Arabic and Islamic thought.</p>
+            <p>He went to Government College Lahore, where he completed an MA in philosophy (1899) and was taught by the British scholar Sir Thomas Arnold. In 1905 he went to Europe, studied at Trinity College, Cambridge, trained as a barrister at Lincoln’s Inn, and earned a doctorate in philosophy from the University of Munich in 1908. His thesis was The Development of Metaphysics in Persia.</p>
+            <p>Back in Lahore he practised law, taught, and wrote poetry. He was knighted in 1923, though he had long criticised colonial rule. He was married more than once and had children, including a son, Javid Iqbal, for whom his famous poem Javid Nama is named. He died in Lahore on 21 April 1938.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="modal fade" id="iqbalMore" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Allama Iqbal - Read More</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+<p>Poet of the East &#183; Philosopher &#183; Thinker behind the idea of Pakistan</p>
+            <h6>Education and Career</h6>
+            <p>Scotch Mission College, Sialkot<br>Government College Lahore: MA in Philosophy (1899)<br>Trinity College, Cambridge (1905–1906); Lincoln’s Inn, London (barrister, 1908)<br>PhD, University of Munich (1908)<br>Lecturer in philosophy and Arabic, then lawyer in Lahore<br>Member of the Punjab Legislative Council (1927)<br>President of the Muslim League’s Allahabad session (1930)</p>
+            <h6>Career Timeline</h6>
+            <p>Year	Milestone<br><br>1877	Born in Sialkot<br>1899	MA in Philosophy, Lahore<br>1905–08	Studies in Cambridge, London and Munich<br>1915	Publishes Asrar-e-Khudi<br>1923	Knighted<br>1924	Publishes Bang-e-Dra<br>1930	Allahabad Address, proposing a Muslim state in north-west India<br>1930–32	Delivers lectures that become The Reconstruction of Religious Thought in Islam<br>1938	Dies in Lahore</p>
+            <h6>Struggles</h6>
+            <p>Iqbal had to balance a legal career with poetry and scholarship. In his later years he suffered from poor health, including eye trouble, the loss of his voice and kidney illness, which restricted his work. Colonial rule, the weakness of Muslim societies and political divisions troubled him deeply, and he channelled that concern into his writing. His call for self-awareness and action inspired millions, but he also faced criticism from rival religious and political groups.</p>
+            <h6>Key Contributions</h6>
+            <p>Poetry in Urdu and Persian. His work awakened a sense of self-respect and purpose (“Khudi”) among Muslims of the subcontinent.<br>Philosophy. He argued that Islamic thought should be dynamic and open to reinterpretation (ijtihad) in the modern world.<br>The Allahabad Address (1930). He proposed the consolidation of Punjab, the North-West Frontier, Sindh and Balochistan into a single Muslim state within or alongside India. This vision inspired the Pakistan Movement.<br>Mentor to Jinnah. He wrote letters urging Jinnah to return and lead the Muslim League.</p>
+            <h6>Awards and Honors</h6>
+            <p>Shair-e-Mashriq (“Poet of the East”), Hakeem-ul-Ummat and Mufakkir-e-Pakistan (“Thinker of Pakistan”)<br>Honoured as the National Poet of Pakistan<br>Knighted in 1923<br>His mausoleum stands beside the Badshahi Mosque in Lahore<br>Allama Iqbal International Airport (Lahore) and Allama Iqbal Open University are named after him<br>Iqbal Day is observed on 9 November</p>
+            <h6>Selected Works and Books</h6>
+            <p>Poetry<br>Asrar-e-Khudi (1915) and Rumuz-e-Bekhudi (1918)<br>Payam-e-Mashriq (1923)<br>Bang-e-Dra (1924)<br>Zabur-e-Ajam (1927)<br>Javid Nama (1932)<br>Bal-e-Jibril (1935)<br>Zarb-e-Kaleem (1936)<br>Armaghan-e-Hijaz (1938, posthumous)<br>Prose<br>The Reconstruction of Religious Thought in Islam (1930), English lectures<br>Ilm-ul-Iqtisad (1903), an early Urdu economics book</p>
+            <h6>Legacy</h6>
+            <p>Iqbal’s poetry is memorised in schools and quoted at national occasions across Pakistan and beyond, and he is respected in Iran, Turkey and Central Asia for his Persian works. His ideas on self-development remain widely studied.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Salahuddin Ayyubi modals -->
+    <div class="modal fade" id="salahBio" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Salahuddin Ayyubi - Biography</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+<p>Salah ad-Din Yusuf ibn Ayyub was born around 1137 in Tikrit, in present-day Iraq, to a Kurdish family. His father, Najm ad-Din Ayyub, served the Zengid rulers, and his uncle Shirkuh became a leading military commander under Nur ad-Din Zengi. The family moved to Baalbek and Damascus, where Salahuddin received a strong education in the Quran, Islamic law, history and horsemanship, and a reputation for piety and modesty.</p>
+            <p>His fortunes changed in the 1160s, when he joined his uncle’s military expeditions to Egypt, then ruled by the weakened Fatimid caliphate. After Shirkuh died in 1169, Salahuddin became vizier of Egypt at about 31. He abolished the Fatimid caliphate in 1171 and returned Egypt to Sunni authority. After Nur ad-Din died in 1174, Salahuddin spent years uniting Egypt, Syria and parts of Mesopotamia under his rule.</p>
+            <p>He died in Damascus on 4 March 1193 and was buried beside the Umayyad Mosque. Contemporary accounts say that he left little wealth, because he had given most of it away.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="modal fade" id="salahMore" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Salahuddin Ayyubi - Read More</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+<p>Sultan of Egypt and Syria &#183; Founder of the Ayyubid Dynasty &#183; Liberator of Jerusalem</p>
+            <h6>Education and Career</h6>
+            <p>Raised and educated in Baalbek and Damascus<br>Military training under his uncle Shirkuh in the service of Nur ad-Din<br>Vizier of Egypt (1169)<br>Sultan of Egypt (1174)<br>Unified Syria and large parts of Upper Mesopotamia under his rule<br>Led the Muslim campaign against the Crusader states (1187–1192)</p>
+            <h6>Career Timeline</h6>
+            <p>Year	Milestone<br><br>c. 1137	Born in Tikrit<br>1164–69	Joins campaigns in Egypt<br>1169	Becomes vizier of Egypt<br>1171	Ends the Fatimid caliphate<br>1174	Sultan of Egypt; begins uniting Syria<br>1187	Wins the Battle of Hattin (4 July); recaptures Jerusalem (2 October)<br>1189–91	Siege of Acre during the Third Crusade<br>1192	Treaty of Ramla with Richard the Lionheart<br>1193	Dies in Damascus</p>
+            <h6>Struggles</h6>
+            <p>For the first part of his career Salahuddin had to deal with rivals within the Muslim world. Many Zengid princes and local rulers resisted his rise, and he spent years in negotiation and warfare to unify them. He also suffered setbacks, including a heavy defeat at Montgisard in 1177. His final years were taken up by the Third Crusade, led by Richard I of England, Philip II of France and Frederick Barbarossa. He could not retake Acre, and the coastal campaigns ended in a stalemate. Years of campaigning damaged his health.</p>
+            <h6>Key Contributions</h6>
+            <p>Unified the Muslim lands of Egypt, Syria and parts of Iraq and Yemen into one strong state<br>The Battle of Hattin (1187). He defeated the Crusader army near the Sea of Galilee, which opened the way to Jerusalem.<br>The recapture of Jerusalem (1187). After about 88 years of Crusader rule, the city surrendered. Accounts say he allowed residents to leave in return for ransom, and that the city was taken with relatively little bloodshed.<br>The Treaty of Ramla (1192). It left the coast with the Crusaders but guaranteed Christian pilgrims access to Jerusalem.<br>Strengthened Cairo’s defences, including the Citadel of Cairo, and supported schools, hospitals and learning</p>
+            <h6>Awards and Honors</h6>
+            <p>Sultan of Egypt and Syria (al-Malik an-Nasir Salah ad-Din)<br>Founder of the Ayyubid dynasty<br>Admired even by his opponents for his generosity and chivalry, and a figure of respect in medieval European literature<br>The Citadel of Cairo, a statue in Damascus and the Salah ad-Din Governorate in Iraq honour his name</p>
+            <h6>Selected Works and Books</h6>
+            <p>The Life of Saladin (al-Nawadir al-Sultaniyya) by Baha ad-Din ibn Shaddad, his companion and judge<br>al-Fath al-Qussi fi al-Fath al-Qudsi by Imad ad-Din al-Isfahani, his secretary<br>The Crusades Through Arab Eyes by Amin Maalouf (1983)<br>Saladin: The Politics of the Holy War by Malcolm Cameron Lyons and D.E.P. Jackson (1982)<br>Saladin by Anne-Marie Edd&#233; (2008)</p>
+            <h6>Legacy</h6>
+            <p>Salahuddin remains a symbol of unity, justice and mercy in the Muslim world, and he is also respected in the West. His dynasty ruled Egypt and Syria for decades after his death.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nelson Mandela modals -->
+    <div class="modal fade" id="mandelaBio" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Nelson Mandela - Biography</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+<p>Nelson Rolihlahla Mandela was born on 18 July 1918 in Mvezo, a small village in the Transkei region, into the Thembu royal family. His birth name, Rolihlahla, is often translated as “troublemaker”. The name “Nelson” was given to him by a schoolteacher at his primary school, a common colonial-era practice. His father, a chief and counsellor to the Thembu king, died when Mandela was a boy, and the regent, Chief Jongintaba, became his guardian.</p>
+            <p>He studied at Clarkebury Boarding Institute and Healdtown Wesleyan College, then entered the University College of Fort Hare. He was expelled after joining a student protest. When the regent arranged a marriage for him, he ran away to Johannesburg. He worked as a mine guard, then as a clerk at a law firm, completing his degree through correspondence and studying law at the University of the Witwatersrand. He later completed his law degree by distance learning with the University of London while in prison.</p>
+            <p>He married three times: Evelyn Mase (1944), Winnie Madikizela-Mandela (1958, divorced 1996) and Gra&#231;a Machel (1998). He had six children. In 1969 he was refused permission to attend the funeral of his eldest son, Thembekile. He died on 5 December 2013 at the age of 95.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="modal fade" id="mandelaMore" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Nelson Mandela - Read More</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+<p>Anti-apartheid leader &#183; Nobel Peace Prize (1993) &#183; First democratically elected President of South Africa</p>
+            <h6>Education and Career</h6>
+            <p>Clarkebury Boarding Institute and Healdtown College, Eastern Cape<br>University College of Fort Hare (left in 1940)<br>BA through the University of South Africa (1942); law studies at Wits<br>LLB, University of London (external programme, completed in prison)<br>Opened South Africa’s first Black-owned law firm, Mandela &amp; Tambo, with Oliver Tambo (1952)<br>Joined the African National Congress (ANC) in 1944 and co-founded its Youth League<br>Co-founded Umkhonto we Sizwe (1961), the ANC’s armed wing<br>President of South Africa (1994–1999)</p>
+            <h6>Career Timeline</h6>
+            <p>Year	Milestone<br><br>1918	Born in Mvezo, Transkei<br>1944	Joins the ANC; co-founds the ANC Youth League<br>1948	The National Party introduces official apartheid<br>1952	Leads the Defiance Campaign; opens a law firm with Oliver Tambo<br>1956–61	Treason Trial, ending in acquittal<br>1961	Co-founds Umkhonto we Sizwe<br>1962	Arrested<br>1964	Rivonia Trial; sentenced to life imprisonment<br>1964–82	Imprisoned on Robben Island<br>1990	Released on 11 February<br>1993	Nobel Peace Prize (shared with F. W. de Klerk)<br>1994	Elected President after South Africa’s first multiracial elections<br>1999	Steps down after one term<br>2013	Dies in Johannesburg</p>
+            <h6>Struggles</h6>
+            <p>Apartheid, the system of racial segregation, was formally introduced in 1948, and Mandela spent his adult life challenging it, first through peaceful protests and legal action. After the 1960 Sharpeville massacre, when police killed protesters, the ANC was banned. Mandela concluded that peaceful resistance alone could not end apartheid and helped to found an armed wing focused on sabotage.<br>After the landmark Rivonia Trial in 1964, he gave a famous speech declaring that he was prepared to die for his ideal of a free and democratic society, and he was sentenced to life imprisonment. He spent twenty-seven years in prison, eighteen of them on Robben Island. Cells were tiny, prisoners did hard labour in a limestone quarry, and visits and letters were strictly limited. He was later moved to Pollsmoor Prison (1982) and then to Victor Verster Prison (1988).<br>Some governments labelled him a terrorist because of the armed struggle. His own family life suffered, with long separations from his wife and children.</p>
+            <h6>Key Contributions</h6>
+            <p>Leader of the anti-apartheid movement. He became the global symbol of the struggle against racial oppression, and international pressure and sanctions eventually forced change.<br>Negotiated a peaceful transition. After his release on 11 February 1990, he negotiated with President F. W. de Klerk the transition to democracy.<br>First democratically elected President. In the first multiracial elections on 27 April 1994, he was elected president with 62% of the vote.<br>Reconciliation. He set up the Truth and Reconciliation Commission, chaired by Archbishop Desmond Tutu, and encouraged unity, famously supporting the national rugby team at the 1995 World Cup.<br>A new constitution. His government oversaw the 1996 constitution, which guaranteed equal rights.<br>Peaceful exit. He stepped down in 1999 after one term, keeping his pledge to strengthen democracy.<br>After leaving office he worked on peace-making, education and the fight against HIV/AIDS through his foundations, and in 2007 helped create The Elders.</p>
+            <h6>Awards and Honors</h6>
+            <p>Nobel Peace Prize (1993), shared with F. W. de Klerk for their joint efforts to end apartheid peacefully<br>Sakharov Prize for Freedom of Thought (1988)<br>Bharat Ratna, India’s highest civilian honour (1990)<br>Nishan-e-Pakistan, Pakistan’s highest civilian honour (1992)<br>US Congressional Gold Medal (1998) and Presidential Medal of Freedom (2002)<br>Hundreds of other awards and honorary degrees from around the world<br>Nelson Mandela International Day is observed on 18 July, designated by the United Nations in 2009<br>The UN’s “Nelson Mandela Rules” on the treatment of prisoners were adopted in 2015</p>
+            <h6>Selected Works and Books</h6>
+            <p>No Easy Walk to Freedom (1965), speeches and writings<br>Long Walk to Freedom (1994), his autobiography<br>Nelson Mandela’s Favorite African Folktales (2002, editor)<br>Conversations with Myself (2010)<br>The Prison Letters of Nelson Mandela (2018)<br>Biographies: Mandela: The Authorised Biography by Anthony Sampson (1999); Mandela: A Critical Life by Tom Lodge (2006); Mandela’s Way by Richard Stengel (2010)</p>
+            <h6>Legacy</h6>
+            <p>Mandela is widely regarded as one of the twentieth century’s great moral and political leaders. He showed that forgiveness and negotiation can bring change after decades of conflict. South Africa still faces serious challenges, including inequality, unemployment and crime, and historians continue to debate how fully the post-apartheid economic promises were met. Adding this to your page will give a more balanced picture.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Albert Einstein modals -->
+    <div class="modal fade" id="einsteinBio" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Albert Einstein - Biography</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+<p>Albert Einstein was born on 14 March 1879 in Ulm, in the German Empire, and grew up in Munich. His father ran an electrical business, and his mother, Pauline, was a gifted pianist who encouraged his love of music. A famous story says he was late learning to speak. He was curious from the start, and he later said that a compass given to him as a child sparked his wonder about invisible forces.</p>
+            <p>He disliked the rigid discipline of German schools and left at 15. After failing the non-science sections of the entrance exam to ETH Zurich, he completed secondary school in Aarau, Switzerland, and entered ETH in 1896. He graduated in 1900 and became a Swiss citizen in 1901.</p>
+            <p>He married Mileva Marić, a fellow physics student, in 1903, and they divorced in 1919. He then married his cousin Elsa, who died in 1936. In 1933 he left Germany as the Nazis rose to power, and he spent the rest of his life at the Institute for Advanced Study in Princeton, New Jersey. He became a US citizen in 1940.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="modal fade" id="einsteinMore" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Albert Einstein - Read More</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+<p>Theoretical Physicist &#183; Nobel Prize in Physics (1921)</p>
+            <h6>Education and Career</h6>
+            <p>Luitpold Gymnasium, Munich; Cantonal School, Aarau<br>ETH Zurich, diploma (1900)<br>PhD, University of Zurich (1905)<br>Patent examiner, Bern (1902–1909)<br>Professor at Zurich, Prague and Berlin<br>Institute for Advanced Study, Princeton (1933 until his death)</p>
+            <h6>Career Timeline</h6>
+            <p>Year	Milestone<br><br>1879	Born in Ulm, Germany<br>1900	Graduates from ETH Zurich<br>1902	Works at the Bern patent office<br>1905	“Miracle year”: four groundbreaking papers<br>1915	Completes general relativity<br>1919	Eclipse observations confirm his light-bending prediction; he becomes world-famous<br>1921	Nobel Prize in Physics<br>1933	Moves to the USA<br>1955	Dies in Princeton</p>
+            <h6>Struggles</h6>
+            <p>Einstein was a rebellious student who clashed with rigid teachers, and after graduating he struggled for two years to find a job, finally taking a patent-office position. His early papers did not earn immediate recognition. In Germany he became a target of antisemitic campaigns and was forced into exile in 1933. For the last three decades of his life he searched for a unified field theory and did not find it. He also stood apart from many colleagues in his discomfort with quantum mechanics’ probabilistic nature, summed up in his long debates with Niels Bohr.</p>
+            <h6>Research</h6>
+            <p>In 1905, while working at the patent office, Einstein published four papers that changed physics:<br>The photoelectric effect. Light behaves as discrete packets of energy (quanta). This is the work for which he won the Nobel Prize.<br>Brownian motion. He explained the random movement of tiny particles in a fluid, giving strong evidence that atoms and molecules exist.<br>Special relativity. He showed that space and time depend on the observer’s motion and that the speed of light is constant.<br>Mass-energy equivalence. The famous relation E = mc&#178;.<br>In 1915 he completed general relativity, which describes gravity as the curvature of space and time. It predicted the bending of light, gravitational waves and black holes, all later confirmed.</p>
+            <h6>Awards and Honors</h6>
+            <p>Nobel Prize in Physics, 1921, “for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect” (formally awarded in 1922)<br>Barnard Medal (1920), Matteucci Medal (1921), Copley Medal (1925), Gold Medal of the Royal Astronomical Society (1926), Max Planck Medal (1929), Franklin Medal (1935)<br>Time magazine’s “Person of the Century” (1999)<br>In 1952 he was offered the presidency of Israel, and he declined</p>
+            <h6>Selected Works and Books</h6>
+            <p>Relativity: The Special and General Theory (1916)<br>The Meaning of Relativity (1922)<br>The Evolution of Physics (1938, with Leopold Infeld)<br>Why Socialism? (1949, essay)<br>Ideas and Opinions and The World as I See It (collections of essays)</p>
+            <h6>Legacy</h6>
+            <p>Einstein’s theories underpin modern cosmology, GPS timing corrections, nuclear physics and the study of black holes. He was also an outspoken advocate for peace, civil rights and education. Days before his death in 1955 he signed the Russell–Einstein Manifesto, warning about the dangers of nuclear weapons.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marie Curie modals -->
+    <div class="modal fade" id="curieBio" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Marie Curie - Biography</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+<p>Marie Curie was born Maria Salomea Skłodowska on 7 November 1867 in Warsaw, which was then under Russian rule. She was the youngest of five children in a family of teachers who valued education deeply, even though they were poor and politically suppressed. Her mother died of tuberculosis when Marie was young, and her eldest sister died of typhus, losses that shaped her serious, determined character.</p>
+            <p>Women could not attend university in Russian-controlled Poland, so Marie joined the clandestine “Flying University”, a secret network of classes taught in private homes. She worked as a governess to fund her older sister’s medical studies in Paris, with the understanding that her sister would later help her in return. In 1891 she moved to Paris and enrolled at the Sorbonne, where she lived in a tiny attic room. She sometimes went hungry and fainted from poor diet, but she graduated first in physics (1893) and second in mathematics (1894).</p>
+            <p>In 1894 she met the physicist Pierre Curie, and they married in 1895. Their partnership became one of the most productive in the history of science. They had two daughters, Ir&#232;ne (who won the Nobel Prize in Chemistry in 1935) and &#200;ve, who later wrote her mother’s best-known biography.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="modal fade" id="curieMore" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Marie Curie - Read More</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+<p>Pioneer of Radioactivity &#183; Nobel Prize in Physics (1903) and Chemistry (1911)</p>
+            <h6>Education and Career</h6>
+            <p>Secret “Flying University” in Warsaw (1880s)<br>University of Paris (Sorbonne): physics degree (1893), mathematics degree (1894)<br>Doctorate in physics (1903), on radioactive substances<br>Became the first woman professor at the Sorbonne (1906) after Pierre’s death<br>Founded the Radium Institute in Paris (1914) and an institute in Warsaw (1932)</p>
+            <h6>Career Timeline</h6>
+            <p>Year	Milestone<br><br>1867	Born in Warsaw<br>1891	Moves to Paris to study at the Sorbonne<br>1895	Marries Pierre Curie<br>1898	Discovers polonium and radium<br>1903	Doctorate, then Nobel Prize in Physics (shared)<br>1906	Pierre dies; she becomes professor at the Sorbonne<br>1911	Nobel Prize in Chemistry<br>1914–18	Builds mobile X-ray units in WWI<br>1934	Dies of aplastic anaemia</p>
+            <h6>Struggles</h6>
+            <p>Marie faced poverty, a lack of access to education for women, and the sexism of the scientific establishment. For years she and Pierre worked in a leaking, converted shed, processing tonnes of pitchblende by hand to isolate tiny amounts of radium. In 1906 Pierre was killed in a street accident, leaving her to raise two daughters alone while continuing their work. In 1911 the press attacked her over a private relationship, and a Nobel committee member suggested she should not come to Stockholm. She went anyway and accepted her second prize. Years of handling radioactive materials without protection eventually damaged her health.</p>
+            <h6>Research</h6>
+            <p>The Curies studied the mysterious rays discovered by Henri Becquerel in uranium. Marie realised that the radiation came from the atoms themselves, an insight that helped open the door to atomic physics. She coined the word “radioactivity”. After finding that the uranium ore pitchblende was far more radioactive than its uranium content explained, she and Pierre concluded that it contained new elements. In 1898 they announced polonium (named after her homeland, Poland) and radium. Marie then spent years purifying radium chloride and measuring its atomic weight, which proved the element was real.<br>During World War I she developed small X-ray vehicles, known as “Little Curies”, and trained women to operate them. They helped surgeons locate bullets and shrapnel in wounded soldiers.</p>
+            <h6>Awards and Honors</h6>
+            <p>Nobel Prize in Physics, 1903, shared with Pierre Curie and Henri Becquerel, for research on radiation phenomena<br>Nobel Prize in Chemistry, 1911, awarded to her alone, for discovering polonium and radium and isolating radium<br>First woman to win a Nobel Prize, and the first person to win in two scientific fields<br>Davy Medal (1903), Matteucci Medal (1904), Elliott Cresson Medal (1909), Willard Gibbs Award (1921)<br>Element curium (96) and the unit curie are named in honour of the Curies<br>Reburied in the Panth&#233;on, Paris, in 1995, the first woman honoured there for her own achievements</p>
+            <h6>Selected Works and Books</h6>
+            <p>Radioactive Substances (1903), her doctoral thesis<br>Trait&#233; de radioactivit&#233; (1910)<br>La Radiologie et la guerre (1921)<br>Pierre Curie (1923), a biography of her husband<br>Madame Curie (1937), a biography by &#200;ve Curie</p>
+            <h6>Legacy</h6>
+            <p>Curie’s work led to advances in cancer treatment, medical imaging, nuclear physics and chemistry. She also became a lasting symbol of what women can achieve in science. Her own notebooks remain radioactive today and are kept in lead-lined storage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dr. Abdus Salam modals -->
+    <div class="modal fade" id="salamBio" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Dr. Abdus Salam - Biography</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+<p>Mohammad Abdus Salam was born on 29 January 1926 in Santokdas, in the Jhang district of Punjab, then part of British India. His father worked in the education department, and the family valued learning. Salam was a brilliant student, and at about the age of 14 he scored the highest marks in the history of the University of the Punjab’s matriculation examination.</p>
+            <p>He studied at Government College Lahore and completed a master’s degree in mathematics in 1946. A scholarship took him to St John’s College, Cambridge, where he completed degrees in mathematics and physics, and then a PhD in theoretical physics (1952) in the field of quantum electrodynamics.</p>
+            <p>Salam returned to Pakistan in 1951 to teach, but found little support for advanced research, so he moved back to Cambridge in 1954. In 1957, at just 31, he became Professor of Theoretical Physics at Imperial College London. He also served as Chief Scientific Adviser to the President of Pakistan and helped build the country’s atomic and space research bodies. He died on 21 November 1996 in Oxford, England, and is buried in Rabwah, Pakistan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="modal fade" id="salamMore" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Dr. Abdus Salam - Read More</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+<p>Theoretical Physicist &#183; Nobel Prize in Physics (1979)</p>
+            <h6>Education and Career</h6>
+            <p>Government College Lahore, MA in Mathematics (1946)<br>St John’s College, Cambridge: BA (1949), PhD (1952)<br>Lecturer, Government College Lahore and the University of the Punjab (1951–54)<br>Professor, Imperial College London (1957–1993)<br>Founder and director, International Centre for Theoretical Physics (ICTP), Trieste, Italy (1964–1993)<br>Chief Scientific Adviser to the President of Pakistan (1961–1974)</p>
+            <h6>Career Timeline</h6>
+            <p>Year	Milestone<br><br>1926	Born in Punjab, British India<br>1946	Master’s in Mathematics, Lahore<br>1952	PhD, Cambridge<br>1957	Professor at Imperial College London<br>1961	Becomes science adviser to Pakistan’s President<br>1964	Founds ICTP, Trieste<br>1974	Leaves his official role in Pakistan<br>1979	Nobel Prize in Physics<br>1996	Dies in Oxford</p>
+            <h6>Struggles</h6>
+            <p>Salam worked in a country with very few research facilities at a time when top-level physics was done abroad. Frustrated at the lack of opportunities in Pakistan, he left in 1954, and he spent much of his later life trying to help scientists in developing countries who faced the same barriers. In 1974 Pakistan’s parliament declared the Ahmadi community, to which he belonged, to be non-Muslim, and he left his government position in protest. Official recognition of his Nobel Prize in Pakistan remained difficult for many years.</p>
+            <h6>Research</h6>
+            <p>Physics knows four fundamental forces. Salam, along with Sheldon Glashow and Steven Weinberg, developed a theory showing that two of them, the electromagnetic force and the weak nuclear force, are different aspects of a single electroweak force. The theory predicted new particles (the W and Z bosons) and a new kind of interaction called “weak neutral currents”. Neutral currents were observed at CERN in 1973, and the W and Z particles were discovered there in 1983. This was a major step towards the dream of a “theory of everything”.</p>
+            <h6>Awards and Honors</h6>
+            <p>Nobel Prize in Physics, 1979, shared with Sheldon Glashow and Steven Weinberg, for the unified theory of weak and electromagnetic interactions<br>The first Pakistani Nobel laureate and the first Muslim to win a Nobel Prize in science<br>Adams Prize (1958), Fellow of the Royal Society (1959), Hughes Medal (1964), Atoms for Peace Prize (1968), Royal Medal (1978), Lomonosov Gold Medal (1983), Copley Medal (1990)<br>Pakistani honors: Pride of Performance (1959), Sitara-e-Pakistan, Nishan-e-Imtiaz (1979)</p>
+            <h6>Selected Works and Books</h6>
+            <p>Ideals and Realities (1984), essays on science and development<br>Unification of Fundamental Forces (1990)<br>Renaissance of Sciences in Islamic Countries (1994)<br>Nobel lecture: “Gauge Unification of Fundamental Forces” (1979)</p>
+            <h6>Legacy</h6>
+            <p>Through ICTP, Salam gave thousands of scientists from developing nations access to world-class training and research. He argued that science and technology were essential for the progress of poorer countries, and his life remains a source of inspiration to young scientists across South Asia.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alexander Fleming modals -->
+    <div class="modal fade" id="flemingBio" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Alexander Fleming - Biography</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+<p>Alexander Fleming was born on 6 August 1881 at Lochfield, a farm near Darvel in Ayrshire, Scotland. He was one of eight children. His father died when Alexander was seven, and the family worked the farm together. He attended local schools, including Kilmarnock Academy, and at 14 moved to London to live with his elder brother Tom.</p>
+            <p>He worked for several years as a clerk in a shipping office. At 20 he received a small inheritance, and on his brother’s advice he used it to study medicine at St Mary’s Hospital Medical School. He qualified in 1906 and won a gold medal in 1908. He stayed at St Mary’s for the rest of his career, working with the pioneering immunologist Sir Almroth Wright.</p>
+            <p>In 1915 he married Sarah McElroy, an Irish nurse, and they had a son, Robert. After Sarah died in 1949 he married Amalia Koutsouri-Vourekas in 1953. He died on 11 March 1955 and is buried in St Paul’s Cathedral, London.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="modal fade" id="flemingMore" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Alexander Fleming - Read More</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+<p>Bacteriologist, Discoverer of Penicillin &#183; Nobel Prize in Physiology or Medicine (1945)</p>
+            <h6>Education and Career</h6>
+            <p>Kilmarnock Academy and the Royal Polytechnic Institution, London<br>St Mary’s Hospital Medical School, MBBS (1906) and BSc with gold medal (1908)<br>Research in Almroth Wright’s Inoculation Department<br>Army medical service in WWI, researching wound infections in France<br>Professor of Bacteriology, University of London (1928)<br>Principal of the Wright-Fleming Institute (1946)<br>Rector of the University of Edinburgh (1951–54)</p>
+            <h6>Career Timeline</h6>
+            <p>Year	Milestone<br><br>1881	Born in Ayrshire, Scotland<br>1906	Qualifies in medicine, St Mary’s Hospital<br>1914–18	Studies infected wounds in WWI<br>1921	Discovers lysozyme<br>1928	Discovers penicillin<br>1929	Publishes his findings<br>1943	Elected Fellow of the Royal Society<br>1944	Knighted<br>1945	Nobel Prize in Medicine<br>1955	Dies in London</p>
+            <h6>Struggles</h6>
+            <p>Fleming grew up in a farming family with little money and had to leave school early to earn a living. In WWI he watched soldiers die of infected wounds and saw that the antiseptics of the day often did more harm than good. When he announced penicillin in 1929, the scientific community showed little interest, mainly because the mould’s active compound was extremely hard to isolate and purify. It took a team of Oxford scientists, Howard Florey, Ernst Chain and their colleagues, about a decade later to turn it into a usable medicine. Fleming consistently credited them. He also warned in his Nobel lecture that careless use could lead to bacterial resistance, a warning that has proved correct.</p>
+            <h6>Research</h6>
+            <p>In 1921, after a cold, Fleming found that tears and mucus contain an enzyme, lysozyme, that dissolves some bacteria. In September 1928 he returned from holiday to find that a mould (Penicillium) had contaminated one of his Staphylococcus culture plates, and that the bacteria around it had been destroyed. He grew the mould, showed that its “mould juice” killed many disease-causing bacteria, and named the substance penicillin. During World War II, large-scale production began, and penicillin saved many thousands of lives, including those of wounded soldiers. It became the first widely used antibiotic and launched the age of modern antibiotic medicine.</p>
+            <h6>Awards and Honors</h6>
+            <p>Nobel Prize in Physiology or Medicine, 1945, shared with Howard Florey and Ernst Boris Chain, for the discovery of penicillin and its curative effect in infectious diseases<br>Fellow of the Royal Society (1943)<br>Knighted (1944)<br>French L&#233;gion d’honneur and numerous other international honours<br>Many honorary degrees from universities around the world<br>Named by Time magazine among the 100 most important people of the 20th century</p>
+            <h6>Selected Works and Books</h6>
+            <p>“On the Antibacterial Action of Cultures of a Penicillium” (1929), the original paper on penicillin<br>Penicillin: Its Practical Application (1946, editor)<br>His research papers on lysozyme (1920s)</p>
+            <h6>Legacy</h6>
+            <p>Penicillin and the antibiotics that followed transformed medicine, making routine surgery, childbirth and the treatment of infections far safer. Fleming’s story also shows the value of curiosity and of paying attention to an unexpected result.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Extra sections added for the project requirements -->
+    <section id="career" class="container py-5 extra-section">
+      <p class="green-text">CAREER JOURNEY</p><h2 class="fw-bold">Career Graph & Struggles</h2>
+      <p class="section-intro">An overview of the journeys of Nobel Prize-winning scientists featured on this website.</p>
+      <div class="career-item"><div class="d-flex justify-content-between"><strong>Marie Curie</strong><span>Research and discoveries</span></div><div class="career-bar"><span style="width:95%"></span></div></div>
+      <div class="career-item"><div class="d-flex justify-content-between"><strong>Albert Einstein</strong><span>Physics and theories</span></div><div class="career-bar"><span style="width:90%"></span></div></div>
+      <div class="career-item"><div class="d-flex justify-content-between"><strong>Abdus Salam</strong><span>Theoretical physics</span></div><div class="career-bar"><span style="width:85%"></span></div></div>
+      <p class="small text-secondary mt-3">Bars are illustrative, not measured scores. Their journeys included barriers, challenges and years of research.</p>
+    </section>
+    <section id="research" class="container py-5 extra-section">
+      <p class="green-text">NOBEL PRIZE RESEARCH</p><h2 class="fw-bold">Research & Experiments</h2>
+      <div class="row g-3 mt-2">
+        <div class="col-md-4"><div class="info-card h-100"><h5>Marie Curie</h5><p>Research on radioactivity and the discovery of polonium and radium. She received Nobel Prizes in Physics and Chemistry.</p></div></div>
+        <div class="col-md-4"><div class="info-card h-100"><h5>Albert Einstein</h5><p>His 1921 Nobel Prize in Physics recognized his explanation of the photoelectric effect.</p></div></div>
+        <div class="col-md-4"><div class="info-card h-100"><h5>Abdus Salam</h5><p>His 1979 Nobel Prize in Physics recognized work on the unified electroweak theory.</p></div></div>
+      </div>
+    </section>
+    <section id="awards" class="container py-5 extra-section">
+      <p class="green-text">RECOGNITION</p><h2 class="fw-bold">Awards & Selected Works</h2>
+      <ul class="simple-list"><li><strong>Marie Curie:</strong> Nobel Prize in Physics (1903) and Chemistry (1911).</li><li><strong>Albert Einstein:</strong> Nobel Prize in Physics (1921), for the photoelectric effect.</li><li><strong>Abdus Salam:</strong> Nobel Prize in Physics (1979), for electroweak unification.</li></ul>
+      <h4 class="mt-4">Books and Reading</h4>
+      <ul class="simple-list"><li><em>Madame Curie</em> — biography by Ève Curie.</li><li><em>Relativity: The Special and the General Theory</em> — Albert Einstein.</li><li><em>Ideals and Realities: Selected Essays of Abdus Salam</em> — Abdus Salam.</li></ul>
+    </section>
+    <section id="references" class="container py-4 extra-section"><h3 class="fw-bold">References</h3><ul class="simple-list"><li>Nobel Prize — official laureate biographies and prize information (nobelprize.org).</li><li>Encyclopaedia Britannica — biographical reference articles (britannica.com).</li><li>Character biography text files included in this project.</li></ul></section>
+    <section id="gallery" class="container py-5 extra-section"><p class="green-text">PHOTO COLLECTION</p><h2 class="fw-bold">Gallery</h2><div class="row g-3 mt-2" id="galleryImages"></div></section>
+    <section id="sitemap" class="container py-5 extra-section"><h2 class="fw-bold">Site Map</h2><div class="sitemap-links"><a href="#home">Home</a><a href="#career">Career Graph</a><a href="#research">Research</a><a href="#awards">Awards & Books</a><a href="#references">References</a><a href="#gallery">Gallery</a></div></section>
+    <div id="ticker" aria-live="polite"><span id="tickerText">Date and time: loading... | Location: asking permission...</span></div>
+
+    <!-- Modal End -->
+
+    <!-- Bootstrap JavaScript is only needed for the navbar and modals -->
+   
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+
+
+    <script>
+      $(document).ready(function () {
+        // ===== LOGIN / SIGNUP (simple version) =====
+
+        // Modal ko variable mein rakh lo
+        var accountModal = new bootstrap.Modal(document.getElementById("accountModal"));
+
+        // Users ki list browser (localStorage) se nikalo. Agar koi nahi hai to khali list do.
+        function getUsers() {
+          var data = localStorage.getItem("users");
+          if (data) {
+            return JSON.parse(data);
+          }
+          return [];
+        }
+
+        function updateUserGreeting() {
+          var loggedInEmail = localStorage.getItem("loggedInUser");
+          var users = getUsers();
+          var currentUser = null;
+          for (var i = 0; i < users.length; i++) {
+            if (users[i].email === loggedInEmail) { currentUser = users[i]; break; }
+          }
+          if (currentUser) { $("#userGreeting").text("Hi " + currentUser.name + "!"); }
+          else { $("#userGreeting").text(""); }
+        }
+
+        function createCharactersCarousel() {
+          var characters = [];
+          $(".character-card").each(function () {
+            var card = $(this);
+            characters.push({ id: card.attr("id"), name: card.find(".card-title").first().text().trim(), image: card.find("img").first().attr("src") });
+          });
+          var slides = "";
+          var indicators = "";
+          var perSlide = 3;
+          for (var i = 0; i < characters.length; i += perSlide) {
+            var activeClass = i === 0 ? "active" : "";
+            slides += '<div class="carousel-item ' + activeClass + '"><div class="row g-3 justify-content-center px-5">';
+            for (var j = i; j < i + perSlide && j < characters.length; j++) {
+              var person = characters[j];
+              slides += '<div class="col-12 col-md-4"><a class="character-slide-card" href="#' + person.id + '"><img src="' + person.image + '" alt="' + person.name + '"><div class="character-slide-name">' + person.name + '</div></a></div>';
+            }
+            slides += '</div></div>';
+            indicators += '<button type="button" data-bs-target="#charactersCarousel" data-bs-slide-to="' + (i / perSlide) + '" class="' + activeClass + '" aria-label="Slide ' + (i / perSlide + 1) + '"></button>';
+          }
+          $("#charactersCarouselInner").html(slides);
+          $("#charactersCarouselIndicators").html(indicators);
+        }
+        createCharactersCarousel();
+
+        // Message dikhane ka function
+        function showMessage(text) {
+          $("#accountMessage").text(text);
+        }
+
+        // Login wala form dikhao
+        function showLoginForm() {
+          $("#loginForm").show();
+          $("#signupForm").hide();
+          showMessage("");
+        }
+
+        // Signup wala form dikhao
+        function showSignupForm() {
+          $("#signupForm").show();
+          $("#loginForm").hide();
+          showMessage("");
+        }
+
+        // Agar user pehle se login hai to modal mat dikhao, warna dikhao
+        if (localStorage.getItem("loggedInUser")) {
+          $("#logoutBtn").removeClass("d-none");
+          updateUserGreeting();
+        } else {
+          updateUserGreeting();
+          accountModal.show();
+        }
+
+        // Tabs par click
+        $("#loginTab").click(showLoginForm);
+        $("#signupTab").click(showSignupForm);
+
+        // ----- SIGNUP -----
+        $("#signupForm").submit(function (event) {
+          event.preventDefault(); // page reload hone se roko
+
+          var name = $("#signupName").val();
+          var email = $("#signupEmail").val();
+          var password = $("#signupPassword").val();
+
+          var users = getUsers();
+
+          // Check karo ke email pehle se to nahi hai
+          for (var i = 0; i < users.length; i++) {
+            if (users[i].email === email) {
+              showMessage("This email is already registered. Please login.");
+              return;
+            }
+          }
+
+          // Naya user list mein daalo aur save karo
+          users.push({ name: name, email: email, password: password });
+          localStorage.setItem("users", JSON.stringify(users));
+
+          // Login form dikhao
+          showLoginForm();
+          showMessage("Account created! Now please login.");
+        });
+
+        // ----- LOGIN -----
+        $("#loginForm").submit(function (event) {
+          event.preventDefault();
+
+          var email = $("#loginEmail").val();
+          var password = $("#loginPassword").val();
+
+          var users = getUsers();
+
+          // Har user ko check karo
+          for (var i = 0; i < users.length; i++) {
+            if (users[i].email === email && users[i].password === password) {
+              // Email aur password sahi hain -> login ho gaya
+              localStorage.setItem("loggedInUser", email);
+              updateUserGreeting();
+              $("#logoutBtn").removeClass("d-none");
+              accountModal.hide(); // login page hata do
+              return;
+            }
+          }
+
+          // Koi match nahi mila
+          showMessage("Wrong email or password.");
+        });
+
+        // ----- LOGOUT -----
+        $("#logoutBtn").click(function () {
+          localStorage.removeItem("loggedInUser");
+          updateUserGreeting();
+          $("#logoutBtn").addClass("d-none");
+          showLoginForm();
+          accountModal.show();
+        });
+
+        $("#allCharacters").click(function () {
+          $(".character-card").parent().show();
+          $(".category-buttons .btn").removeClass("active");
+          $(this).addClass("active");
+        });
+
+        $("#famousAthletes").click(function () {
+          $(".character-card").parent().hide();
+          $(".character-card[data-category='athlete']").parent().show();
+          $(".category-buttons .btn").removeClass("active");
+          $(this).addClass("active");
+        });
+
+        $("#famousHistorians").click(function () {
+          $(".character-card").parent().hide();
+          $(".character-card[data-category='historian']").parent().show();
+          $(".category-buttons .btn").removeClass("active");
+          $(this).addClass("active");
+        });
+
+        $("#famousScientists").click(function () {
+          $(".character-card").parent().hide();
+          $(".character-card[data-category='scientist']").parent().show();
+          $(".category-buttons .btn").removeClass("active");
+          $(this).addClass("active");
+        });
+      });
+    </script>
+
+   <script src="js/animation.js"></script>
+    <script>
+      const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+      function updateActiveNavLink() {
+        const currentHash = window.location.hash || "#home";
+
+        navLinks.forEach((link) => {
+          const isActive = link.getAttribute("href") === currentHash;
+          link.classList.toggle("active", isActive);
+
+          if (isActive) {
+            link.setAttribute("aria-current", "page");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      }
+
+      window.addEventListener("hashchange", updateActiveNavLink);
+      updateActiveNavLink();
+    </script>
+
+    <script>
+      // Visitor count saved in this browser
+      var visitorCount = localStorage.getItem("bioVisitors") || 0;
+      visitorCount++;
+      localStorage.setItem("bioVisitors", visitorCount);
+      document.getElementById("visitorCount").textContent = visitorCount;
+
+      // Current date and time
+      function updateTicker() {
+        var now = new Date();
+        document.getElementById("tickerText").textContent = "Date & Time: " + now.toLocaleString() + " | Location: ";
+      }
+      updateTicker();
+      setInterval(updateTicker, 1000);
+
+      // Ask permission to show the visitor's location
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          document.getElementById("tickerText").textContent += position.coords.latitude.toFixed(2) + ", " + position.coords.longitude.toFixed(2);
+        }, function() {
+          document.getElementById("tickerText").textContent += "not shared";
+        });
+      } else {
+        document.getElementById("tickerText").textContent += "not available";
+      }
+
+      // Create gallery using photos already present in character cards
+      var gallery = document.getElementById("galleryImages");
+      document.querySelectorAll(".person-img").forEach(function(personImage) {
+        var col = document.createElement("div");
+        col.className = "col-6 col-md-4 col-lg-3";
+        var image = document.createElement("img");
+        image.src = personImage.src;
+        image.alt = personImage.alt;
+        image.className = "gallery-photo";
+        col.appendChild(image);
+        gallery.appendChild(col);
+      });
+
+      // Fade sections in when they appear on screen
+      var sections = document.querySelectorAll(".extra-section");
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) entry.target.classList.add("show-section");
+        });
+      });
+      sections.forEach(function(section) { observer.observe(section); });
+
+      // Highlight the selected menu link
+      var menuLinks = document.querySelectorAll(".navbar-nav .nav-link");
+      function setActiveMenu() {
+        var current = window.location.hash || "#home";
+        menuLinks.forEach(function(link) {
+          link.classList.toggle("active", link.getAttribute("href") === current);
+        });
+      }
+      window.addEventListener("hashchange", setActiveMenu);
+      setActiveMenu();
+    </script>
+  </body>
+</html>
