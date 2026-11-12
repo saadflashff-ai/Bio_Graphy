@@ -63,8 +63,8 @@ footer {
 /* Mobile Logo */
 @media (max-width: 576px) {
   .navbar-logo {
-    width: 45px;
-    height: 45px;
+    width: 135px;
+    height: 48px;
   }
 
   .navbar-brand {
